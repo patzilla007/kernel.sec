@@ -109,7 +109,7 @@ install_syzkaller() {
             print_step "Cleaning previous build..."
             make clean
             print_step "Building syzkaller..."
-            make all && cd ..
+            make all && make bin/syz-extract && cd ..
             ;;
         *)
             print_step "Skipping directory change and build..."
