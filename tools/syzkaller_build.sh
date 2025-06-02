@@ -69,9 +69,10 @@ restart_terminal() {
 # Function to install system dependencies
 install_dependencies() {
     print_step "Installing system dependencies..."
-    sudo apt install git curl make gcc g++ python3 python3-pip -y
-    sudo apt install -y build-essential libelf-dev libssl-dev -y
-    sudo apt install -y flex bison libssl-dev libelf-dev qemu-kvm debootstrap bc libstdc++-13-dev glibc-source
+    sudo apt install git curl make gcc g++ python3 python3-pip net-tools -y # env build dependencies
+    sudo apt install -y build-essential libelf-dev libssl-dev -y # gcc build dependencies
+    sudo apt install -y flex bison libssl-dev libelf-dev qemu-kvm debootstrap bc libstdc++-13-dev glibc-source # linux kernel build dependencies
+    sudo apt install -y clang-format flatbuffers-compiler # syzkaller build dependencies
 }
 
 # Function to install Go environment
